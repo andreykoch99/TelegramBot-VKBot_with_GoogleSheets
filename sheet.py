@@ -9,8 +9,10 @@ res = worksheet.get_all_records()
 # pprint(type(res[0]['vk'])) # <class 'str'>
 n = len(res)
 i = 0
-find_me = 'Шанц'
+find_me = 'Ш'
+ans = []
 for i in range(0, n):
     if res[i]['имя'].find(find_me) != -1:
-        print('Нашёл, это {}, её номер телефона: {}'.format(res[i]['имя'], res[i]['телефон']))
-        break
+        ans.append(i)
+        # print('Нашёл, это {}, её номер телефона: {}'.format(res[i]['имя'], res[i]['телефон']))
+pprint(ans)
