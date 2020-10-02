@@ -6,20 +6,17 @@ sh = gc.open_by_key('TOKEN')
 worksheet = sh.sheet1
 
 res = worksheet.get_all_records()
-# print(type(res))
-pprint(type(res[0]['vk'])) # <class 'str'>
-pprint(res[0].items())
+# pprint(type(res[0]['vk'])) # <class 'str'>
 n = len(res)
 i = 0
-our_list  = []
-while n != i:
+our_list = []
+for i in range(0, n):
     our_list.append(res[i]['имя'])
-    i += 1
 pprint(our_list)
 
-
-
-# if find_me in res[0]:
+# find_me = 'Шанц'
+#
+# if find_me in our_list:
 #     pprint('Нашёл!')
 # else:
 #     pprint('Не нашёл!')
