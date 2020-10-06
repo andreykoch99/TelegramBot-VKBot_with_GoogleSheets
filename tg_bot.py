@@ -7,14 +7,14 @@ bot = telebot.TeleBot('TOKEN')
 @bot.message_handler(func=lambda message: True, commands=['start', 'help'])
 def handle_start_help(message):
     if message.text == '/help' or '/start':
-        bot.send_message(message.chat.id, 'Привет! Я ищу номер телефона в базе конактов по ключу. '
+        bot.send_message(message.chat.id, 'Привет! Я ищу номер телефона в базе контактов по ключу. '
                                           'Для старта напишите, например "/find"')
 
 
 @bot.message_handler(func=lambda message: True, commands=['find'])
 def handle_find(message):
         bot.send_message(message.chat.id, 'Окей, теперь напиши имя или фамилию, по которой будем искать.'
-                                          'Будь внимателен, учитывай, что фамилия и имя должны начинаться с большой'
+                                          'Будь внимателен, учитывай, что фамилия и имя должны начинаться с большой '
                                           'буквы, чтобы я корректно нашёл. Также ты можешь ввести часть '
                                           'имени или фамилии')
         bot.register_next_step_handler(message, found_result)
