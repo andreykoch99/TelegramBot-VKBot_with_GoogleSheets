@@ -1,7 +1,8 @@
 import telebot
+from settings import TG_BOT_TOKEN
 from connect_get_data_find import connect_and_get_data, find_number
 
-bot = telebot.TeleBot('TOKEN')
+bot = telebot.TeleBot(TG_BOT_TOKEN)
 
 
 @bot.message_handler(func=lambda message: True, commands=['start', 'help'])

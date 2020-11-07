@@ -1,10 +1,10 @@
 import vk_api
+from settings import VK_BOT_TOKEN
 from vk_api.longpoll import VkLongPoll, VkEventType
 from connect_get_data_find import connect_and_get_data, find_number
 from vk_api.utils import get_random_id
 
-mytoken = 'TOKEN'
-# Авторизуемся как сообщество
+mytoken = VK_BOT_TOKEN
 vk_session = vk_api.VkApi(token=mytoken)
 session_api = vk_session.get_api()
 longpoll = VkLongPoll(vk_session)
@@ -29,12 +29,11 @@ for event in longpoll.listen():
         elif msg == '/find':
             ready_for_find = True
             write_message(sender, 'Окей, теперь напиши имя или фамилию, по которой будем искать.'
-                                  'Будь внимателен, учитывай, что фамилия и имя должны начинаться с большой '
+                                  ' Будь внимателен, учитывай, что фамилия и имя должны начинаться с большой '
                                   'буквы, чтобы я корректно нашёл. Также ты можешь ввести часть '
-                                  'имени или фамилии')
+                                  'имени или фамилии.')
         else:
             write_message(sender, 'Я тебя не понимаю')
-
 
         for event in longpoll.listen():
             if event.to_me and ready_for_find:

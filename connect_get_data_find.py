@@ -1,9 +1,10 @@
 import gspread
+from settings import GOOGLE_SHEET_TOKEN
 
 
 def connect_and_get_data():
     res = gspread.service_account(filename='credentials.json').open_by_key(
-        'TOKEN').sheet1.get_all_records()
+        GOOGLE_SHEET_TOKEN).sheet1.get_all_records()
     return res
 
 
